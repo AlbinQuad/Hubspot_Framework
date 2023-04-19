@@ -1,0 +1,2 @@
+D:\Project\Robocorp\Hubspot_Framework_New\libraries\html_tables.py:31: MarkupResemblesLocatorWarning: The input looks more like a filename than markup. You may want to open this file and pass the filehandle into Beautiful Soup.
+  gfg = BeautifulSoup(mail,"lxml")

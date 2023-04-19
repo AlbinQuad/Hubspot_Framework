@@ -1,0 +1,21 @@
+==============================================================================
+Login Task :: Template robot main suite.                                      
+==============================================================================
+{'WEBURL': 'https://www.hubspot.com/', 'USER NAME': 'janeefarrobot2328@gmail.com', 'PASSWORD': 'Hubspot@123', 'BROWSER': 'edge'}
+Hubspot Portal Launch & Login                                         | PASS |
+------------------------------------------------------------------------------
+Hubspot Portal Contact Creation                                       | PASS |
+------------------------------------------------------------------------------
+Hubspot Portal Company Creation                                       | PASS |
+------------------------------------------------------------------------------
+Hubspot Portal Deal Creation                                          | PASS |
+------------------------------------------------------------------------------
+Hubspot Portal Ticket Creation                                        | PASS |
+------------------------------------------------------------------------------
+Hubspot Portal Delete Contact                                         | PASS |
+------------------------------------------------------------------------------
+Login Task :: Template robot main suite.                              | PASS |
+6 tests, 6 passed, 0 failed
+==============================================================================
+Output:  D:\Project\Robocorp\Hubspot_Framework_New\output\output.xml
+Log:     D:\Project\Robocorp\Hubspot_Framework_New\output\log.html
