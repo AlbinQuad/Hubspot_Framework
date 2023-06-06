@@ -16,6 +16,7 @@ el_login_btn = 'xpath:(//a[@data-logged-in-href="//app.hubspot.com/home" and con
 el_contact_menu = 'xpath:(//a[contains(text(),"Contacts")])[1]'
 el_contact_sub_menu = 'xpath:(//a[@id="nav-secondary-contacts"])[1]'
 el_create_contact = 'xpath://button//*[contains(text(),"Create contact")]'
+el_company_submenu = 'xpath:(//a[@id="nav-secondary-companies"])[1]'
 #-----------------------------------------------------------------------------------------------------------
 
 #---------------------- Ui elements in Create Contact page -------------------------------------------------
