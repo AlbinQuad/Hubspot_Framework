@@ -146,17 +146,28 @@ Portal Create Contact
 Company Creation Process
     #------------- After creating the Contact, it should be check if the  Create Company button is available in the portal. if yes, click on the Create company button,  then complete the company creation process. --------------------
     Sleep    ${MEDIUM_WAIT}
-    Select Frame    ${el_iframe_company_page}
-    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Page Contains Element        ${el_company_heading}
-    
-    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Page Contains Element        ${el_company_add_btn}
-    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_company_add_btn}
-    Unselect Frame
-    
+
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Page Should Contain Element       ${el_contact_menu}
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_contact_menu}
     Sleep    ${MEDIUM_WAIT}
+
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Page Should Contain Element    ${el_company_submenu} 
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_company_submenu}
+    Sleep    ${MEDIUM_WAIT}
+
+    # Select Frame    ${el_iframe_company_page}
+    # Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Page Contains Element        ${el_company_heading}
+    
+    # Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Page Contains Element        ${el_company_add_btn}
+    # Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_company_add_btn}
+    # Unselect Frame
+    
+    # Sleep    ${MEDIUM_WAIT}
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Element Is Visible        //button[@data-test-id="new-object-button"]
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    //button[@data-test-id="new-object-button"]
+
     Select Frame    ${el_iframe_id}
-    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Element Is Visible        ${el_create_new_btn}
-    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_create_new_btn}
+    
 
     Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Element Is Visible        ${el_domain_name_field}
     ${domain_name_present}=  RPA.Browser.Selenium.Is Element Visible  ${el_domain_name_field}
@@ -245,22 +256,32 @@ Deal Creation Process
     #------------- After creating the Company, check if the  Create deal button is available in the portal. Click on the Create deal button, and complete the deal creation process. --------------------
     
     Sleep    ${MEDIUM_WAIT}
-    Select Frame    ${el_iframe_company_page}
+    #Select Frame    ${el_iframe_company_page}
 
-    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Page Contains Element       ${el_deal_heading}
+    #Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Page Contains Element       ${el_deal_heading}
     
-    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Page Contains Element        ${el_deal_add_btn}
-    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_deal_add_btn}
+    #Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Page Contains Element        ${el_deal_add_btn}
+    #Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_deal_add_btn}
 
-    Unselect Frame
+    #Unselect Frame
     
+    #Sleep    ${MEDIUM_WAIT}
+
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Page Should Contain Element       ${el_sales_menu}
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_sales_menu}
     Sleep    ${MEDIUM_WAIT}
+
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Page Should Contain Element       ${el_deal_menu}
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_deal_menu}
+
+    Sleep    ${MEDIUM_WAIT}
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Element Is Visible        //button[@data-test-id="new-object-button"]
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    //button[@data-test-id="new-object-button"]
+    Sleep    ${MEDIUM_WAIT}
+
     Select Frame    ${el_iframe_id}
 
-    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Page Contains Element        ${el_create_new_btn}
-    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_create_new_btn}
-
-
+    Sleep    ${MEDIUM_WAIT}
     Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Element Is Visible        ${el_deal_name}
     ${deal_name_present}=  RPA.Browser.Selenium.Is Element Visible  ${el_deal_name}
         IF    '${deal_name_present}'=='True'
@@ -305,20 +326,32 @@ Ticket Creation Process
     #------------ After creating the Deal, check if the  Create ticket button is available in the portal. Click on the Create ticket button, then complete the ticket creation process. ---------------------------
     
     Sleep    ${MEDIUM_WAIT}
-    Select Frame    ${el_iframe_company_page}
+    # Select Frame    ${el_iframe_company_page}
     
-    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Page Contains Element        ${el_ticket_heading}
+    # Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Page Contains Element        ${el_ticket_heading}
     
-    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Page Contains Element        ${el_ticket_add_btn}
-    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_ticket_add_btn}
+    # Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Page Contains Element        ${el_ticket_add_btn}
+    # Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_ticket_add_btn}
 
-    Unselect Frame
+    # Unselect Frame
+    
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Page Should Contain Element       ${el_service_menu}
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_service_menu}
+    Sleep    ${MEDIUM_WAIT}
+
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Page Should Contain Element       ${el_ticket_menu}
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_ticket_menu}
+    Sleep    ${MEDIUM_WAIT}
+
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Element Is Visible        //button[@data-test-id="new-object-button"]
+    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    //button[@data-test-id="new-object-button"]
+    Sleep    ${MEDIUM_WAIT}
 
     Select Frame    ${el_iframe_id}
 
-    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Element Is Visible        ${el_create_new_btn}
-    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_create_new_btn}
-
+    # Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Element Is Visible        ${el_create_new_btn}
+    # Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_create_new_btn}
+    Sleep    ${MEDIUM_WAIT}
     Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Element Is Visible        ${el_ticket_name_field}
     ${tkt_name_present}=  RPA.Browser.Selenium.Is Element Visible  ${el_ticket_name_field}
         IF    '${tkt_name_present}'=='True'
@@ -338,7 +371,8 @@ Ticket Creation Process
 
 Contact Deletion Process
     #--------- After creating the Ticket, it should be delete the created contact. -----------------------
-
+    Sleep    ${MEDIUM_WAIT}
+    Sleep    ${MEDIUM_WAIT}
     Contact Menu Validation
     Sleep    ${MEDIUM_WAIT}
     Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Element Is Visible        ${el_contact_search_field}
