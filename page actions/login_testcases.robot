@@ -100,6 +100,12 @@ Read Otp
 
 Contact Menu Validation
     #------------ Checking for menu 'Contacts', click on Contacts if it is visible --------------#
+    Sleep    ${SHORT_WAIT}
+    ${def_home}=  RPA.Browser.Selenium.Is Element Visible    xpath://footer//button[2]
+    IF    '${def_home}'=='True'
+        Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    xpath://footer//button[2] 
+    END
+    Sleep    ${SHORT_WAIT}
 
     Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Page Should Contain Element       ${el_contact_menu}
     Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_contact_menu}
@@ -110,12 +116,12 @@ Contact Menu Validation
 
 Portal Create Contact
     #------------- Checking if Create Contact button visible, if yes click on Create Contact button ---------------
-    Sleep    ${SHORT_WAIT}
-    ${def_home}=  RPA.Browser.Selenium.Is Element Visible    xpath://footer//button[2]
-    IF    '${def_home}'=='True'
-        Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    xpath://footer//button[2] 
-    END
-    Sleep    ${SHORT_WAIT}
+    # Sleep    ${SHORT_WAIT}
+    # ${def_home}=  RPA.Browser.Selenium.Is Element Visible    xpath://footer//button[2]
+    # IF    '${def_home}'=='True'
+    #     Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    xpath://footer//button[2] 
+    # END
+    # Sleep    ${SHORT_WAIT}
 
     Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Page Should Contain Element       ${el_create_contact}
     Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    ${el_create_contact}
