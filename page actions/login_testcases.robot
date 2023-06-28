@@ -60,6 +60,7 @@ Read Otp From Email
                 Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}  Click Element    ${el_otp_login_btn}
                 Sleep    ${SHORT_WAIT}
 
+
                 #Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Element Is Visible        ${el_welcome_btn}
 
                 ${welcome_btn_present}=  RPA.Browser.Selenium.Is Element Visible  ${el_welcome_btn}
@@ -67,7 +68,13 @@ Read Otp From Email
                     Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}  Click Element    ${el_welcome_btn} 
                 END
                 
-                
+                Sleep    ${SHORT_WAIT}
+                ${def_home}=  RPA.Browser.Selenium.Is Element Visible    xpath://footer//button[2]
+                IF    '${def_home}'=='True'
+                    Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}    ${GLOBAL_RETRY_INTERVAL}    Click Element    xpath://footer//button[2] 
+                END
+                Sleep    ${SHORT_WAIT}
+
                 Wait Until Keyword Succeeds    ${GLOBAL_RETRY_AMOUNT}   ${GLOBAL_RETRY_INTERVAL}     Wait Until Element Is Visible        ${el_contact_menu}
             END
         END
@@ -76,7 +83,7 @@ Read Otp From Email
 Read Otp
     Authorize    account=janeefarrobot2328@gmail.com   password=pikxjbwtciokwxim
 
-    Sleep  100s    
+    Sleep  45s    
     @{emails}    List Messages    FROM "noreply@hubspot.com"
 
     ${empty_or_not}  ${x}=  Run Keyword And Ignore Error  Should Not Be Empty  ${emails}
