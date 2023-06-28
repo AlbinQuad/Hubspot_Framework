@@ -83,7 +83,7 @@ Read Otp From Email
 Read Otp
     Authorize    account=janeefarrobot2328@gmail.com   password=pikxjbwtciokwxim
 
-    Sleep  45s    
+    Sleep  75s    
     @{emails}    List Messages    FROM "noreply@hubspot.com"
 
     ${empty_or_not}  ${x}=  Run Keyword And Ignore Error  Should Not Be Empty  ${emails}
